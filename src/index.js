@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/md-light-indigo/theme.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+import { Card } from 'primereact/card';
+import MyDock from './components/MyDock';
+import Home from './components/Home'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        componente: <Home />,
+        titulo: 'Home'
+    };
+  }
+  escolherComponente = (componente, titulo) => {
+    this.setState({
+        componente: componente,
+        titulo: titulo
+    })
+  }
+  render() {
+    return (
+      <div>
+        <MyDock escolherComponente={this.escolherComponente} />
+        <div className='grid justify-content-center mt-8'>
+          <div className='col-8'>
+            <Card title={this.state.titulo}>
+                {this.state.componente}
+            </Card>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.querySelector('#root'));
