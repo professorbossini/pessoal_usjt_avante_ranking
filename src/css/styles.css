@@ -1,0 +1,81 @@
+html{
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+.p-card-body{
+    height: 62%;
+    width: 100%
+}
+.p-card-content{
+    height: 95%;
+}
+
+
+
+.p-galleria .p-card-body, p.p-galleria .p-card-content {
+    height: 100%;
+}
+
+.p-galleria-content {
+    height: 100%
+}
+
+.p-galleria-item-wrapper {
+    width: 100%;
+    margin-left: 12px;
+}
+.p-galleria-item-container {
+    width: 100%
+}
+.p-galleria-item {
+    width: 100%
+}
+
+.p-galleria-thumbnail-wrapper, .p-galleria-thumbnail-container {
+    background-color: #CCC !important;
+    border-radius: 8px;
+}
+
+/*.p-galleria-thumbnail-container{*/
+/*    height: 10%*/
+/*}*/
+
+
+/*.p-galleria-item-wrapper, .p-galleria-item-container {*/
+/*    width: 100%;*/
+/*    margin-left: 2px;*/
+/*}*/
+
+
+
+/*.p-galleria-thumbnail-container {*/
+/*    height: 80% !important;*/
+/*}*/
+
+/*.p-galleria-thumbnail-items-container {*/
+/*    height: 55% !important;*/
+/*}*/
+
+/*.p-galleria-thumbnail-items {*/
+/*    height: 100% !important;*/
+/*}*/
+
+/*.p-galleria-thumbnail-item {*/
+/*    margin-bottom: 4px;*/
+/*    border-radius: 12px;*/
+/*}*/
+
+/*.p-card-body, .p-card-content{*/
+/*    height: 70%*/
+/*}*/
+
+/*.p-galleria, .p-galleria-content {*/
+/*    height: 100%*/
+/*}*/
+
+/*.p-card {*/
+/*}*/

@@ -8,6 +8,10 @@ import { Card } from 'primereact/card';
 import MyDock from './components/MyDock';
 import Home from './components/Home'
 
+import './css/styles.css'
+
+import background from './img/avante_logo.png'
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -23,17 +27,24 @@ export default class App extends Component {
     })
   }
   render() {
+    const cardHeader = (
+        <img src={background} className={'h-18rem border-round'} />
+    )
     return (
-      <div>
-        <MyDock escolherComponente={this.escolherComponente} />
-        <div className='grid justify-content-center mt-8'>
-          <div className='col-8'>
-            <Card title={this.state.titulo}>
-                {this.state.componente}
-            </Card>
-          </div>
+        <div className='grid justify-content-center h-screen m-0 bg-blue-500'>
+
+            <div className='sm:col-10 md:col-10 lg:col-8 xl:col-6'>
+                <Card
+                    title={this.state.titulo}
+                    header={cardHeader}
+                    className={"bg-blue-50 h-full p-3 m-0"}
+                    >
+                        {this.state.componente}
+                </Card>
+            </div>
+            <MyDock escolherComponente={this.escolherComponente} />
         </div>
-      </div>
+
     );
   }
 }

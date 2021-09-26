@@ -4,12 +4,12 @@ import podium from '../img/podium.svg'
 import home from '../img/home.svg'
 import myself from '../img/myself.svg'
 import Home from './Home'
-import Top3 from './Top3'
+import Top10 from './Top10'
 import Myself from './Myself'
 export default class MyDock extends Component {
     
     homeComponent = <Home />
-    top3Component = <Top3 />
+    top3Component = <Top10 />
     myselfComponent = <Myself />
     
     render() {
@@ -21,8 +21,8 @@ export default class MyDock extends Component {
             },
             {
                 label: 'Top 3',
-                icon: () => <img alt="Top 3" src={podium}  className={styles.img} />,
-                command: () => {this.props.escolherComponente(this.top3Component, 'Top 3')}
+                icon: () => <img alt="Top 10" src={podium}  className={styles.img} />,
+                command: () => {this.props.escolherComponente(this.top3Component, 'Top 10')}
             },
             {
                 label: 'Meu desempenho',
@@ -31,7 +31,7 @@ export default class MyDock extends Component {
             }
         ]
         return (
-            <Dock className="p-dock" model={items} position="bottom"/>
+            <Dock className="p-dock" className="m-0" model={items} position="bottom"/>
         )
     }
 }
