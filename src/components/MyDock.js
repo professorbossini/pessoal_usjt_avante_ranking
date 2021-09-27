@@ -31,7 +31,7 @@ export default class MyDock extends Component {
             }
         ]
         return (
-            <Dock className="p-dock" className="m-0" model={items} position="bottom"/>
+            <Dock className="p-dock" className="m-0" model={items} position="left"/>
         )
     }
 }
