@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Card } from 'primereact/card'
 import { Galleria } from "primereact/galleria";
 import '../css/styles.css'
-import { stringify } from 'flatted'
 import background from '../img/avante_logo.png'
+import studentService from '../service/student.service';
 
 export default class Top10 extends Component {
+
   osMelhores = [
     {
       ra: 77665588,
@@ -81,10 +82,10 @@ export default class Top10 extends Component {
           className={`w-full h-full border border-1 border-400`}>
           <div
             className={`flex flex-column align-items-center justify-content-center`}>
-            <p className={`text-3xl h-full w-full text-center border-1 round border-300 shadow-4 py-3 mt-2`}>{item.posicao + 1}{`\u00B0 lugar`}</p>
-            <p className={`text-4xl my-4`}>{item.aluno.nome}</p>
-            <p className={``}>RA: {item.aluno.ra}</p>
-            <p className={`text-5xl`}>AVTCOINS: {item.aluno.avtCoins}</p>
+            <p className={`text-4xl h-full w-full text-center border-1 round border-300 shadow-4 py-3 mt-2`}>{item.posicao + 1}{`\u00B0 lugar`}</p>
+            <p className={`text-3xl my-4`}>{item.aluno.nome}</p>
+            {/* <p className={``}>RA: {item.aluno.ra}</p> */}
+            <p className={`text-3xl`}>{item.aluno.avtCoins} avtcoins</p>
           </div>
         </Card>
     )
