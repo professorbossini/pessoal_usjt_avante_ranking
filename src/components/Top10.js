@@ -125,7 +125,7 @@ export default class Top10 extends Component {
           item={this.itemTemplate}
           thumbnail={this.thumbnailTemplate}
           numVisible={1}
-          circular autoPlay transitionInterval={3000000}
+          circular autoPlay transitionInterval={3000}
           thumbnailsPosition={'left'}
           className={""}
         />
