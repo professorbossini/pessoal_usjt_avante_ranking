@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import { Button } from 'primereact/button'
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
+import { Dialog } from 'primereact/dialog'
 import { InputText } from 'primereact/inputtext';
 import studentService from '../service/student.service';
 export default class Myself extends Component {
 
     getMySelfAmongOthers = () => {
         studentService.getMySelfAmongOthers(this.state.ra, (result) => {
-            this.setState({alunos: result.data})
+            this.setState({alunos: result.data, dialogoVisivel: true})
         })
     }
     state = {
         alunos: [],
-        ra: ''
+        ra: '',
+        dialogoVisivel: false
     }
     componentDidMount(){
         // const alunos = [
@@ -30,7 +32,7 @@ export default class Myself extends Component {
             <div>
             <div className="p-fluid">
                 <div className="p-field">
-                    <label htmlFor="campoBusca">Digite seu RA</label>
+                    <label id="label-digite-ra" htmlFor="campoBusca">Digite seu RA</label>
                     <InputText 
                         id="campoBusca" 
                         type="text" 
@@ -40,12 +42,14 @@ export default class Myself extends Component {
                 </div>
                 <Button onClick={this.getMySelfAmongOthers} className="mt-2" label="OK"/>
             </div>
-            <DataTable value={this.state.alunos} stripedRows>
-                <Column field="posicao" header="Posição"/>
-                {/* <Column field="ra" header="RA"/> */}
-                <Column field="nome" header="Nome"/>
-                <Column field="avtCoins" header="AVTCoins"/>
-            </DataTable>
+            <Dialog visible={this.state.dialogoVisivel} style={{width: '50vw'}} breakpoints={{'960px': '75vw', '640px': '100vw'}} onHide={() => this.setState({dialogoVisivel: false})}>
+                <DataTable value={this.state.alunos} stripedRows>
+                    <Column field="posicao" header="Posição"/>
+                    {/* <Column field="ra" header="RA"/> */}
+                    <Column field="nome" header="Nome"/>
+                    <Column field="avtCoins" header="AVTCoins"/>
+                </DataTable>
+            </Dialog>
             </div>
         )
     }

@@ -6,6 +6,7 @@ import myself from '../img/myself.svg'
 import Home from './Home'
 import Top10 from './Top10'
 import Myself from './Myself'
+import '../css/styles.css'
 export default class MyDock extends Component {
     
     homeComponent = <Home />
@@ -31,11 +32,12 @@ export default class MyDock extends Component {
             }
         ]
         return (
-            <Dock className="p-dock" className="m-0" model={items} position="left"/>
+            <Dock className="p-dock" className="m-0" model={items} position="bottom"/>
         )
     }
 }
 
 const styles = {
-    img: 'border-round'
+    img: 'border-round',
+    width: 1
 }

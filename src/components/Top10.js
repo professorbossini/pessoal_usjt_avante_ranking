@@ -79,13 +79,14 @@ export default class Top10 extends Component {
   itemTemplate = (item) => {
     return (
         <Card
-          className={`w-full h-full border border-1 border-400`}>
+          id="cartao-item-template"
+          className={`w-full  border border-1 border-400`}>
           <div
             className={`flex flex-column align-items-center justify-content-center`}>
-            <p className={`text-4xl h-full w-full text-center border-1 round border-300 shadow-4 py-3 mt-2`}>{item.posicao + 1}{`\u00B0 lugar`}</p>
-            <p className={`text-3xl my-4`}>{item.aluno.nome}</p>
+            <p className={`text-sm md:text-3xl lg:text-4xl  w-full text-center border-1 round border-300 shadow-4 py-3 mt-2`}>{item.posicao + 1}{`\u00B0 lugar`}</p>
+            <p className={`text-xs md:text-2xl lg:text-3xl my-4`}>{item.aluno.nome}</p>
             {/* <p className={``}>RA: {item.aluno.ra}</p> */}
-            <p className={`text-3xl`}>{item.aluno.avtCoins} avtcoins</p>
+            <p className={`text-xs md:text-2xl lg:text-3xl`}>{item.aluno.avtCoins} avtcoins</p>
           </div>
         </Card>
     )
@@ -100,7 +101,8 @@ export default class Top10 extends Component {
             item.aluno.nome.split(" ").filter((e, i) => i <= 0).map((palavra, i) =>
                 <p
                    key={i}
-                  className={"text-xs text-center w-4rem"}>
+                  className={"md:text-sm text-center sm:w-2rem md:w-4rem"}
+                  style={{wordWrap: 'break-word', fontSize: '7px'}}>
                   {palavra}
                 </p>
             )
@@ -115,10 +117,10 @@ export default class Top10 extends Component {
           value={this.osMelhores.map ((e, i) => ({aluno: e, posicao: i}))}
           item={this.itemTemplate}
           thumbnail={this.thumbnailTemplate}
-          numVisible={2}
-          circular autoPlay transitionInterval={3000}
+          numVisible={1}
+          circular autoPlay transitionInterval={3000000}
           thumbnailsPosition={'left'}
-          className={"w-full h-full"}
+          className={""}
         />
     );
   }

@@ -28,16 +28,17 @@ export default class App extends Component {
   }
   render() {
     const cardHeader = (
-        <img src={background} className={'h-18rem border-round'} />
+        <img src={background} className={'h-12rem md:h-10rem lg:h-18rem border-round'} />
     )
     return (
         <div className='grid justify-content-center h-screen m-0 bg-blue-500'>
 
-            <div className='sm:col-10 md:col-10 lg:col-8 xl:col-6'>
+            <div className='md:col-10 h-full lg:col-8 xl:col-6'>
                 <Card
+                    id="cartao-principal"
                     title={this.state.titulo}
                     header={cardHeader}
-                    className={"bg-blue-50 h-full p-3 m-0"}
+                    className={"bg-blue-50 p-3 m-0"}
                     >
                         {this.state.componente}
                 </Card>
