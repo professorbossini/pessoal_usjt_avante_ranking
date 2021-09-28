@@ -7,6 +7,13 @@ import studentService from '../service/student.service';
 
 export default class Top10 extends Component {
 
+  state = {osMelhores: []}
+  componentDidMount(){
+      studentService.getTopOnes((result) => {
+        this.setState({osMelhores: result.data})
+      })
+  }
+
   osMelhores = [
     {
       ra: 77665588,
@@ -84,7 +91,7 @@ export default class Top10 extends Component {
           <div
             className={`flex flex-column align-items-center justify-content-center`}>
             <p className={`text-sm md:text-3xl lg:text-4xl  w-full text-center border-1 round border-300 shadow-4 py-3 mt-2`}>{item.posicao + 1}{`\u00B0 lugar`}</p>
-            <p className={`text-xs md:text-2xl lg:text-3xl my-4`}>{item.aluno.nome}</p>
+            <p className={`text-xs md:text-2xl lg:text-3xl my-4 text-center`}>{item.aluno.nome}</p>
             {/* <p className={``}>RA: {item.aluno.ra}</p> */}
             <p className={`text-xs md:text-2xl lg:text-3xl`}>{item.aluno.avtCoins} avtcoins</p>
           </div>
@@ -114,7 +121,7 @@ export default class Top10 extends Component {
   render(){
     return (
         <Galleria
-          value={this.osMelhores.map ((e, i) => ({aluno: e, posicao: i}))}
+          value={this.state.osMelhores.map ((e, i) => ({aluno: e, posicao: i}))}
           item={this.itemTemplate}
           thumbnail={this.thumbnailTemplate}
           numVisible={1}
