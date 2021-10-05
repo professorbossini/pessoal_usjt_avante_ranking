@@ -11,7 +11,7 @@ export default class Top10 extends Component {
   componentDidMount(){
       studentService.getTopOnes((result) => {
         this.setState({osMelhores: result.data})
-      })
+      }, 100)
   }
 
   osMelhores = [

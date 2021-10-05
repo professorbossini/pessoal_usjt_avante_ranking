@@ -23,7 +23,7 @@ export default class MyDock extends Component {
             {
                 label: 'Top 3',
                 icon: () => <img alt="Top 10" src={podium}  className={styles.img} />,
-                command: () => {this.props.escolherComponente(this.top3Component, 'Top 10')}
+                command: () => {this.props.escolherComponente(this.top3Component, 'Top 100')}
             },
             {
                 label: 'Meu desempenho',

@@ -9,8 +9,8 @@ export default {
         })
         .catch(e => console.log (e))
     },
-    getTopOnes (url, endpoint, callback){
-        axios.get(`${url}/${endpoint}`)
+    getTopOnes (url, endpoint, {n}, callback){
+        axios.get(`${url}/${endpoint}?n=${n}`)
         .then(res => {
             console.log(res)
             callback(res)
